@@ -4,15 +4,233 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Single Page App</title>
-    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/frontend/static/css/index.css">
+    <link href="/frontend/static/css/output.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://pro1014.x10.mx/public/post/carousel/dist/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://pro1014.x10.mx/public/post/carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://pro1014.x10.mx/public/post/carousel/dist/assets/owl.theme.default.min.css">
 </head>
-<body>
-    <nav class="nav">
-        <a href="/" class="nav__link" data-link>Dashboard</a>
-        <a href="/posts" class="nav__link" data-link>Posts</a>
-        <a href="/settings" class="nav__link" data-link>Settings</a>
-    </nav>
+<body class="bg-[#EAE7DE]">
+    <section class="app__nav py-3 absolute top-[0px] left-[0px] w-full z-[9999]">
+        <div class=" px-[30px]">
+           <div class="flex flex-row">
+              <div class="w-[50%] ">
+                 <h2 class="text-[30px] text-white font-[500] ">BARISTA</h2>
+              </div>
+              <div class="w-[50%] flex flex-row  justify-end items-center ">
+                   <div class="border-r-2 border-white pr-7 mr-7 uppercase">
+                       <ul class="flex flex-row gap-8 font-[500] text-white text-[18px]">
+                        <a href="/" class="nav__link" data-link>Home</a>
+                        <a href="/product" class="nav__link" data-link>Product</a>
+                        
+                       </ul>
+                   </div>
+                   <div class="flex flex-row gap-7 font-[500] text-white text-[18px]">
+                     <div class="relative">
+                       
+                      
+                         <div class=" absolute bg-[#c7a17a] text-[11px] px-[5px] top-[-2px] right-[-8px]" ><a href="/cart" class="show-quantity-icon" data-link>3 </a></a></div>
+                        
+                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                      
+                     </div>
+                         <div>
+                           <i class="fa fa-search" aria-hidden="true"></i>
+                         </div>
+                         <div>
+                           <i class="fa fa-bars" aria-hidden="true"></i>
+                         </div>
+                   </div>
+              </div>
+           </div>
+        </div>
+    </section>
+
+
+
     <div id="app"></div>
-    <script type="module" src="/static/js/index.js"></script>
+
+    
+    
+    <footer class="py-[65px] app__footer bg-[url('https://barista.qodeinteractive.com/elementor/wp-content/uploads/2017/02/footer-img.jpg')]">
+       <div class="container flex flex-row  xl:flex-nowrap gap-5">
+           <div class=" px-8 md:basis-1/2 xl:basis-1/4 uppercase">
+              <div class=""><b class="text-white text-[22px]">Opening hours</b></div>
+              <div class="flex flex-col gap-5 mt-9">
+                <div class="flex flex-row text-[15px] gap-[3px]">
+                  <div class="text-white ">monday</div>
+                  <div class="relative top-[16px] grow bg-[rgba(255,255,255,.25)] h-[1px]"></div>
+                  <div class="text-[#c7a17a]">Closed</div>
+              </div>
+              <div class="flex flex-row text-[15px] gap-[3px]">
+                <div class="text-white ">tuesday</div>
+                <div class="relative top-[16px] grow bg-[rgba(255,255,255,.25)] h-[1px]"></div>
+                <div class="text-[#acacac]">9:00 - 22:00</div>
+            </div>
+            <div class="flex flex-row text-[15px] gap-[3px]">
+              <div class="text-white ">wednesday</div>
+              <div class="relative top-[16px] grow bg-[rgba(255,255,255,.25)] h-[1px]"></div>
+              <div class="text-[#acacac]">9:00 - 22:00</div>
+          </div>
+          <div class="flex flex-row text-[15px] gap-[3px]">
+            <div class="text-white ">thursday</div>
+            <div class="relative top-[16px] grow bg-[rgba(255,255,255,.25)] h-[1px]"></div>
+            <div class="text-[#acacac]">9:00 - 22:00</div>
+        </div>
+        <div class="flex flex-row text-[15px] gap-[3px]">
+          <div class="text-white ">friday</div>
+          <div class="relative top-[16px] grow bg-[rgba(255,255,255,.25)] h-[1px]"></div>
+          <div class="text-[#acacac]">9:00 - 01:00</div>
+      </div>
+      <div class="flex flex-row text-[15px] gap-[3px]">
+        <div class="text-white ">saturday</div>
+        <div class="relative top-[16px] grow bg-[rgba(255,255,255,.25)] h-[1px]"></div>
+        <div class="text-[#acacac]">12:00 - 01:00</div>
+    </div>
+    <div class="flex flex-row text-[15px] gap-[3px]">
+      <div class="text-white ">sunday</div>
+      <div class="relative top-[16px] grow bg-[rgba(255,255,255,.25)] h-[1px]"></div>
+      <div class="text-[#acacac]">9:00 - 22:00</div>
+    </div>
+              </div>
+            
+           </div>
+           <div class="px-8 md:basis-1/2 xl:basis-1/4 uppercase">
+            <div class=""><b class="text-white text-[22px]">Opening hours</b></div>
+            <div class="mt-9">
+                <div class="leading-[20px] pb-3  border-[1px] border-transparent border-b-[rgba(255,255,255,.25)]">
+                    <span class="text-white text-[15px]">EXPAND YOUR MIND, CHANGE EVERYTHING</span>
+                    <span class="text-[13.4px] italic text-[#c7a17a]">14.02.2017</span>
+                </div>
+                <div class="leading-[20px] py-3  border-[1px] border-transparent border-b-[rgba(255,255,255,.25)]">
+                  <span class="text-white text-[15px]">EXPAND YOUR MIND, CHANGE EVERYTHING</span>
+                  <span class="text-[13.4px] italic text-[#c7a17a]">14.02.2017</span>
+              </div>
+              <div class="leading-[20px] py-3  border-[1px] border-transparent border-b-[rgba(255,255,255,.25)]">
+                <span class="text-white text-[15px]">EXPAND YOUR MIND, CHANGE EVERYTHING</span>
+                <span class="text-[13.4px] italic text-[#c7a17a]">14.02.2017</span>
+            </div>
+            <div class="leading-[20px] py-3 ">
+              <span class="text-white text-[15px]">EXPAND YOUR MIND, CHANGE EVERYTHING</span>
+              <span class="text-[13.4px] italic text-[#c7a17a]">14.02.2017</span>
+          </div>
+            </div>
+           </div>
+           <div class="px-8md:basis-1/2 xl:basis-1/4">
+            <div class=""><b class="text-white text-[22px]">contact us</b></div>
+              <div class="mt-9 flex flex-col gap-6">
+                   <div class="flex flex-col text-[#acacac] text-[14px] gap-[6px]">
+                       <span class="text-[#c7a17a]">vuminhhungltt904@gmail.com</span>
+                       <span class="">0359932904</span>
+                       <span class="">136 Nguyen Thi Thap, Lien Chieu, Da Nang</span>
+                   </div>
+                   <div class="">
+                       <b class="text-white text-[22px] uppercase">The last standard post</b>
+                   </div>
+                   <div class="flex flex-row items-center gap-2">
+                        <input type="email" class="py-[8.3px] px-[7px] text-[13px] bg-transparent border border-[#acacac] " placeholder="Your Email">
+                        <button class="text-white text-[19px] bg-[#c7a17a] px-[18px] py-[5px]"><i class="fa fa-caret-right" aria-hidden="true"></i></button>
+                   </div>
+              </div>
+           </div>
+           <div class="px-8 md:basis-1/2 xl:basis-1/4">
+               <div class=""><b class="text-white text-[22px]">contact us</b></div>
+              <div class="mt-9">
+                <div class="flex flex-col gap-4 leading-[20px] pb-3  border-[1px] border-transparent border-b-[rgba(255,255,255,.25)]">
+                  <span class="text-white text-[15px] font-bold">BARISTA COFFEE SHOP</span>
+                  <span class="text-[13.4px] text-white">2606 Saints Alley
+                    Tampa, FL 33602</span>
+                  
+              </div>
+              <div class="leading-[20px] gap-4 py-3  flex flex-col">
+                <span class="text-white text-[15px] font-bold">BARISTA CAFE</span>
+                <span class="text-[13.4px] text-white">2606 Saints Alley
+                  Tampa, FL 33602</span>
+            </div>
+              </div>
+           </div>
+       </div>
+    </footer>
+    <section class=" bg-[#000] py-[20px]">
+        <div class="container flex flex-row justify-between">
+          <div class="text-[#acacac] text-[15px]">© Qode Interactive</div>
+          <div class="text-white flex flex-row gap-7">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            <i class="fa fa-vine" aria-hidden="true"></i>
+          </div>
+          <div class="text-[15px] text-[#acacac]">2017 All Rights Reserved</div>
+        </div>
+    </section>
+    
+    
+   
+    <script  src="/frontend/main.js"></script>
+    <script >
+
+      function getTotalCart(arr){
+        $('.show-quantity-icon').empty();
+        if(arr == null){
+            $('.show-quantity-icon').text(0)
+        }else {
+          var sum = 0;
+          for(var i = 0; i < arr.length; i ++){
+            sum = sum + Number(arr[i].quantity);
+          }
+          $('.show-quantity-icon').text( String(sum));
+        }
+      }
+      
+      
+      getTotalCart(JSON.parse(localStorage.getItem("carts")));
+      
+      function addCart(item, redirect = false){
+                          
+          var shopCart = JSON.parse(localStorage.getItem("carts"));
+          if(shopCart == null){
+              localStorage.setItem("carts", JSON.stringify([item]));
+          }else {
+            function checkArray(arr, id){
+                for(var i = 0; i < arr.length; i ++){
+                  if(arr[i].id == id){
+                    return(true);
+                  }
+                }
+                return (false);
+              }
+            
+              
+              if(checkArray(shopCart, item.id) == true){
+                var newArr = shopCart.map((value, key) => {
+                      if(value.id == item.id){
+                        return {
+                          ...value,
+                          quantity : (Number((value.quantity)) + item.quantity)
+                        }
+                      }else {
+                          return (value);
+                      }
+                });
+                 localStorage.setItem("carts", JSON.stringify(newArr));
+              }else {
+                  localStorage.setItem("carts", JSON.stringify([...shopCart, item]));
+              }
+      
+          }
+          getTotalCart(JSON.parse(localStorage.getItem("carts")));
+          if(redirect){
+             window.location.replace("/cart");
+            
+          }
+      }
+      
+      
+            
+               
+      </script>
+      
 </body>
 </html>

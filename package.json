@@ -2,14 +2,27 @@
   "name": "spa",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx tailwindcss -i ./frontend/src/input.css -o ./frontend/static/css/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "webpack --config webpack.config.js  --watch",
+    "app": "npm run build & npm start & npm run dev"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "axios": "^1.5.0",
+    "express": "^4.17.1",
+    "firebase": "^10.4.0",
+    "nodemon": "^3.0.1",
+    "source-map-loader": "^4.0.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   }
 }
