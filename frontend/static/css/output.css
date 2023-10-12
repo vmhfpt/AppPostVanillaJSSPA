@@ -598,6 +598,10 @@ video {
   bottom: 11px;
 }
 
+.bottom-\[90px\] {
+  bottom: 90px;
+}
+
 .left-\[-2px\] {
   left: -2px;
 }
@@ -610,6 +614,10 @@ video {
   left: 20px;
 }
 
+.right-\[-80px\] {
+  right: -80px;
+}
+
 .right-\[-8px\] {
   right: -8px;
 }
@@ -618,12 +626,24 @@ video {
   right: 10px;
 }
 
+.right-\[120px\] {
+  right: 120px;
+}
+
 .top-20 {
   top: 5rem;
 }
 
+.top-\[-20px\] {
+  top: -20px;
+}
+
 .top-\[-2px\] {
   top: -2px;
+}
+
+.top-\[-30px\] {
+  top: -30px;
 }
 
 .top-\[0px\] {
@@ -638,8 +658,16 @@ video {
   top: 20px;
 }
 
+.top-\[4px\] {
+  top: 4px;
+}
+
 .top-\[9px\] {
   top: 9px;
+}
+
+.z-\[10999\] {
+  z-index: 10999;
 }
 
 .z-\[9999\] {
@@ -831,6 +859,14 @@ video {
   height: 40px;
 }
 
+.h-\[45px\] {
+  height: 45px;
+}
+
+.h-\[500px\] {
+  height: 500px;
+}
+
 .h-\[50px\] {
   height: 50px;
 }
@@ -841,6 +877,10 @@ video {
 
 .h-\[60px\] {
   height: 60px;
+}
+
+.h-\[70\%\] {
+  height: 70%;
 }
 
 .h-\[80px\] {
@@ -904,6 +944,18 @@ video {
   width: 220px;
 }
 
+.w-\[30px\] {
+  width: 30px;
+}
+
+.w-\[350px\] {
+  width: 350px;
+}
+
+.w-\[45px\] {
+  width: 45px;
+}
+
 .w-\[50\%\] {
   width: 50%;
 }
@@ -947,6 +999,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.flex-none {
+  flex: none;
 }
 
 .grow {
@@ -1121,8 +1177,21 @@ video {
   border-radius: 10px;
 }
 
+.rounded-\[2px\] {
+  border-radius: 2px;
+}
+
+.rounded-\[5px\] {
+  border-radius: 5px;
+}
+
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-t-\[10px\] {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .border {
@@ -1139,6 +1208,10 @@ video {
 
 .border-\[3px\] {
   border-width: 3px;
+}
+
+.border-\[4px\] {
+  border-width: 4px;
 }
 
 .border-b-2 {
@@ -1162,6 +1235,10 @@ video {
 }
 
 .border-t-2 {
+  border-top-width: 2px;
+}
+
+.border-t-\[2px\] {
   border-top-width: 2px;
 }
 
@@ -1201,6 +1278,11 @@ video {
 .border-\[\#efefef\] {
   --tw-border-opacity: 1;
   border-color: rgb(239 239 239 / var(--tw-border-opacity));
+}
+
+.border-red-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
 .border-transparent {
@@ -1259,6 +1341,11 @@ video {
   background-color: rgb(234 231 222 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#eeeeee\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 238 238 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#f4f4f4\] {
   --tw-bg-opacity: 1;
   background-color: rgb(244 244 244 / var(--tw-bg-opacity));
@@ -1276,6 +1363,11 @@ video {
 
 .bg-\[rgba\(255\2c 255\2c 255\2c \.25\)\] {
   background-color: rgba(255,255,255,.25);
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
 .bg-red-500 {
@@ -1345,6 +1437,11 @@ video {
 .px-12 {
   padding-left: 3rem;
   padding-right: 3rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .px-20 {
@@ -1834,6 +1931,16 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
@@ -1844,14 +1951,30 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-yellow-400 {
+  --tw-text-opacity: 1;
+  color: rgb(250 204 21 / var(--tw-text-opacity));
+}
+
 .line-through {
   text-decoration-line: line-through;
+}
+
+.shadow-\[0_35px_60px_-15px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
+  --tw-shadow: 0 35px 60px -15px rgba(0,0,0,0.3);
+  --tw-shadow-colored: 0 35px 60px -15px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-\[5px_5px_60px_5px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
   --tw-shadow: 5px 5px 60px 5px rgba(0,0,0,0.3);
   --tw-shadow-colored: 5px 5px 60px 5px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .\!filter {

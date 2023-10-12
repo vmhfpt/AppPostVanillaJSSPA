@@ -1,6 +1,7 @@
 import AbstractView from "./AbstractView.js";
 import Order from "../service/orderService.js";
 import axios from 'axios';
+import { validateEmail, validatePhoneNumber, validateName } from "../service/validateService.js";
 export default class extends AbstractView {
     constructor(params) {
         super(params);
@@ -8,7 +9,19 @@ export default class extends AbstractView {
     }
 
     async getHtml() {
-    
+        var checkName = false, checkEmail = false, checkPhoneNumber = false, checkAddress = false;
+        window.handleInputName = (thisData) => {
+            checkName = validateName({target : $(thisData), name : "Name"}, $('.error-name'))
+        }
+        window.handleInputEmail = (thisData) => {
+            checkEmail = validateEmail(thisData, $('.error-email'))
+        }
+        window.handleInputPhone = (thisData) => {
+            checkPhoneNumber = validatePhoneNumber(thisData, $('.error-phone'))
+        }
+        window.handleInputAddress = (thisData) => {
+            checkAddress = validateName({target : thisData, name : "Address"},$('.error-address') )
+        }
         let order = new Order();
         function handleRequest() {
             axios.get("https://provinces.open-api.vn/api/").then(function (response) {
@@ -113,34 +126,37 @@ export default class extends AbstractView {
 
 
         window.submitOrder = (thisData) => {
+            if(checkEmail && checkAddress && checkName && checkPhoneNumber){
+                $(thisData).prop('disabled', true);
+                $(thisData).html(`<i class=" fa fa-spinner fa-spin"></i>`);
+                let name = $("#name-order").val();
+                let email = $("#email-order").val();
+                let phoneNumber = $("#phone-order").val();
+                let note = $("#note-order").val();
+                let fullAddress = $("#address-order").val();
+                let province = $("#show-provinces").children("option").filter(":selected").text();
+                let district = $("#show-districts").children("option").filter(":selected").text();
+                let ward = $("#show-wards").children("option").filter(":selected").text();
         
-            $(thisData).prop('disabled', true);
-            $(thisData).html(`<i class=" fa fa-spinner fa-spin"></i>`);
-            let name = $("#name-order").val();
-            let email = $("#email-order").val();
-            let phoneNumber = $("#phone-order").val();
-            let note = $("#note-order").val();
-            let fullAddress = $("#address-order").val();
-            let province = $("#show-provinces").children("option").filter(":selected").text();
-            let district = $("#show-districts").children("option").filter(":selected").text();
-            let ward = $("#show-wards").children("option").filter(":selected").text();
-    
-            let dataUser = {
-                name,
-                email,
-                phoneNumber,
-                note,
-                fullAddress : `${fullAddress}, ${ward}, ${district}, ${province}`
-            }
-            
-          
-            order.insertOrderAndGetLastID(dataUser, JSON.parse(localStorage.getItem("carts"))).then((data) => {
-                if(data.status == "success"){
-                    showPopupOrder(dataUser, JSON.parse(localStorage.getItem("carts")));
-                    localStorage.setItem("carts", JSON.stringify([]));
-                    renderCarts();
+                let dataUser = {
+                    name,
+                    email,
+                    phoneNumber,
+                    note,
+                    fullAddress : `${fullAddress}, ${ward}, ${district}, ${province}`
                 }
-            })
+                
+            
+                order.insertOrderAndGetLastID(dataUser, JSON.parse(localStorage.getItem("carts"))).then((data) => {
+                    if(data.status == "success"){
+                        showPopupOrder(dataUser, JSON.parse(localStorage.getItem("carts")));
+                        localStorage.setItem("carts", JSON.stringify([]));
+                        renderCarts();
+                    }
+                })
+            }
+          
+            
             
         }
  
@@ -303,7 +319,7 @@ export default class extends AbstractView {
         });
     }
 
-        return `
+        return /*html */`
         <section style="background-image: url(https://barista.qodeinteractive.com/elementor/wp-content/uploads/2016/02/shop-title-area.jpg)" class="flex items-center justify-center bg-fixed app__banner-fourth-block py-[160px]" >
         <span class="uppercase text-white font-bold text-[35px] ">Cart</span>
  </section>
@@ -336,7 +352,7 @@ export default class extends AbstractView {
   <div class="container">
      <div class="flex flex-row justify-between">
          <div class="flex gap-4">
-             <input type="text" class="text-[14.5px] h-full border-[1px] border-[#efefef] px-4 text-[#c7a17a]" placeholder="Coupon code">
+             <input  type="text" class="text-[14.5px] h-full border-[1px] border-[#efefef] px-4 text-[#c7a17a]" placeholder="Coupon code">
              <button class="uppercase bg-[#c7a17a] text-white text-[14px] font-bold h-full px-9 py-4">apply coupon</button>
          </div>
          <div class="">
@@ -371,18 +387,21 @@ export default class extends AbstractView {
     <div class="container">
          <div class="flex gap-5">
              <div class="w-full flex flex-col gap-5">
-                 <div class="flex gap-4">
-                    <div class="basis-1/2">
-                        <input id="name-order" type="text" class="w-full text-[14.5px] h-full border-[1px] border-[#efefef] px-4 py-4 text-[#c7a17a]" placeholder="Name">
+                 <div class="flex gap-4 ">
+                    <div class="basis-1/2 flex flex-col gap-2">
+                        <input oninput="handleInputName(this)" id="name-order" type="text" class="w-full text-[14.5px] h-full border-[1px] border-[#efefef] px-4 py-4 text-[#c7a17a]" placeholder="Name">
+                        <span class="text-red-500 text-[13px] error-name">* Name is required</span>
                     </div>
-                     <div class="basis-1/2">
-                        <input id="email-order" type="email" class="w-full text-[14.5px] h-full border-[1px] border-[#efefef] px-4 py-4 text-[#c7a17a]" placeholder="Email">
+                     <div class="basis-1/2 flex flex-col gap-2">
+                        <input oninput="handleInputEmail(this)"  id="email-order" type="email" class="w-full text-[14.5px] h-full border-[1px] border-[#efefef] px-4 py-4 text-[#c7a17a]" placeholder="Email">
+                        <span class="text-red-500 text-[13px] error-email">* Email is required</span>
                      </div>
                  </div>
 
                  <div class="">
                     <div class="basis-1/2">
-                        <input id="phone-order" type="number" class="w-full text-[14.5px] h-full border-[1px] border-[#efefef] px-4 py-4 text-[#c7a17a]" placeholder="Phone number">
+                        <input oninput="handleInputPhone(this)" id="phone-order" type="number" class="w-full text-[14.5px] h-full border-[1px] border-[#efefef] px-4 py-4 text-[#c7a17a]" placeholder="Phone number">
+                        <span class="text-red-500 text-[13px] error-phone">* Phone Number is required</span>
                      </div>
                  </div>
 
@@ -405,7 +424,8 @@ export default class extends AbstractView {
                 </div>
                  <div class="">
                     <div class="basis-1/2">
-                        <input id="address-order" type="text" class="w-full text-[14.5px] h-full border-[1px] border-[#efefef] px-4 py-4 text-[#c7a17a]" placeholder="Address receive products">
+                        <input oninput="handleInputAddress(this)" id="address-order" type="text" class="w-full text-[14.5px] h-full border-[1px] border-[#efefef] px-4 py-4 text-[#c7a17a]" placeholder="Address receive products">
+                        <span class="text-red-500 text-[13px] error-address">* Address is required</span>
                      </div>
                  </div>
                  <div class="">
@@ -420,6 +440,9 @@ export default class extends AbstractView {
          </div>
     </div>
 </section>
-        `;
+       
+
+
+`;
     }
 }

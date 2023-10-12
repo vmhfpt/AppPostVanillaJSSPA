@@ -1,5 +1,5 @@
 import AbstractView from "./AbstractView.js";
-
+import Chat from "./chat.js";
 export default class extends AbstractView {
     constructor(params) {
         super(params);
@@ -631,6 +631,8 @@ export default class extends AbstractView {
   </div>
      </div>
   </section>
+
+  ${Chat()}
         `;
     }
 }

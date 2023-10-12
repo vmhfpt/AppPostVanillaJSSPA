@@ -11,7 +11,7 @@ export default class Order extends Config {
     }
     
     async insertOrderAndGetLastID(dataUser, dataCart){
-    
+         
         return await addDoc(this.orderRef, { 
             address : dataUser.fullAddress,
             createdAt : Timestamp.fromDate(new Date()),
