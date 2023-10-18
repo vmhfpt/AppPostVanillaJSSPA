@@ -224,16 +224,18 @@ export default class extends AbstractView {
            </div>`);
          })
         }
+       
+       
 
         
-        return `
+        return /*html */`
         <section  class="add-popup-cart gap-4 flex flex-col  fixed top-20 right-[10px] h-screen w-auto z-[9999]">
        </section>
         <section  style="background-image: url(https://barista.qodeinteractive.com/elementor/wp-content/uploads/2016/02/shop-title-area.jpg)" class="flex items-center justify-center bg-fixed app__banner-fourth-block py-[160px]" >
           <span class="uppercase text-white font-bold text-[35px] ">Shop </span>
         </section>
 
-        <section class="bg-[#FFFFFF]">
+        <section class="bg-[#FFFFFF]  " id="cc">
     <div class="container flex flex-row gap-10">
          <div class="grow py-[80px]">
           <div class="flex justify-between text-[#989898] italic text-[15px] py-8">
@@ -249,7 +251,7 @@ export default class extends AbstractView {
                 </select>
              </div>
           </div>
-          <div class="grid grid-cols-3 gap-8 w-full show-product">
+          <div class="grid grid-cols-3 gap-8 w-full show-product" id="box">
             <div class="flex flex-col gap-[2px]">
               <div class=" relative group/item bg-[#fff] w-full h-[370px] animated-background">
               

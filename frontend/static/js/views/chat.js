@@ -5,20 +5,21 @@ export default function Chat(){
     var numberChat = 1;
     function optionFunction(text){
         return {
+          
+
+
             // method: 'POST',
             // url: 'https://open-ai21.p.rapidapi.com/conversationgpt35',
             // headers: {
             //   'content-type': 'application/json',
-            //   'X-RapidAPI-Key': '16ce5680c4msh2edfceceacf27e1p161993jsnf2827b1f5743',
+            //   'X-RapidAPI-Key': '1d92f26225msh1c0ec698f285fb8p1fc2fbjsn7409b76033c8',
             //   'X-RapidAPI-Host': 'open-ai21.p.rapidapi.com'
             // },
-
-
             method: 'POST',
             url: 'https://open-ai21.p.rapidapi.com/conversationgpt35',
             headers: {
               'content-type': 'application/json',
-              'X-RapidAPI-Key': '1d92f26225msh1c0ec698f285fb8p1fc2fbjsn7409b76033c8',
+              'X-RapidAPI-Key': '9373d0a4c2msh9061055d038d026p100b65jsn6c584a0f172f',
               'X-RapidAPI-Host': 'open-ai21.p.rapidapi.com'
             },
             data: {
@@ -103,7 +104,7 @@ export default function Chat(){
     window.closeChat = () => {
         $("#show-tab-chat").fadeOut();
     }
-    return `<section class="z-[10999] chat-app fixed bottom-[90px] right-[120px] ">
+    return /*html */`<section class="z-[10999] chat-app fixed bottom-[90px] right-[120px] ">
     <div id="show-tab-chat" class="hidden w-[350px] h-[500px]  bg-white rounded-[10px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]  flex-col justify-between">
         <div class="px-4 bg-blue-500 rounded-t-[10px] flex justify-between items-center">
            <div class="flex items-center gap-4">
